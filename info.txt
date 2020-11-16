@@ -1,0 +1,3 @@
+#client id:<your-client-id>
+#Token:<your bot token>
+#permissions:8
