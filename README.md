@@ -44,7 +44,7 @@
 - Any suggestions regarding new commands ,modification are always welcome.
 
 ---
-# Joker Help
+# [Joker Help](https://github.com/Mastermind-sap/joker/blob/main/help.md)
 ## Use !joker before any command
 - mention
 
