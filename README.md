@@ -96,3 +96,14 @@ crack a coding related joke
 crack a joke
 
 ---
+
+# Some Cool Discord built-in commands:
+
+- /giphy : search for gifs on web
+- /tenor : search for gifs on web
+- /tts : send text to speech message to all members currently viewing the channel
+- /me : display a text with emphasis
+- /spoiler : mark your message a spoiler
+- /nick : change your nickname on the server
+
+---
