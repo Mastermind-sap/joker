@@ -191,6 +191,7 @@ async def bye(ctx, user : discord.Member =None):
     await ctx.send(random.choice(bye_urls))
 
 @bot.command()
+@commands.has_permissions(administrator=True)
 async def spam(ctx, times,*,text):
     for i in range(int(times)):
         await ctx.send(text)
