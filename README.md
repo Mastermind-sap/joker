@@ -107,3 +107,17 @@ crack a joke
 - /nick : change your nickname on the server
 
 ---
+
+# Bonus:
+
+<img src="https://github.com/Mastermind-sap/joker/blob/main/screenshots/shhh.jpg" width="200">
+
+## To invite my other bot "shhh" [click here](https://discord.com/oauth2/authorize?client_id=769807215095185458&permissions=8&scope=bot)
+
+### Features:
+- Bans all foul language or slangs in the server channels
+- It deletes the message containing a slang and gives a message
+
+### For code of shhh bot [click here](https://github.com/Mastermind-sap/discord-bot/tree/main/shhh-discord)
+
+---
