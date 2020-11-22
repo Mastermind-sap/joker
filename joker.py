@@ -29,7 +29,7 @@ async def help(ctx):
     help_embed.add_field(name="goodmorning/gm",value="wish goodmorning",inline=False)
     help_embed.add_field(name="goodnight/goodn8/nightynight/gn",value="wish goodnight",inline=False)
     help_embed.add_field(name="bye/sayonara/adios",value="say bye",inline=False)
-    help_embed.add_field(name="spam",value="spam some text n number of times",inline=False)
+    help_embed.add_field(name="spam",value="only admins can spam some text n number of times using this command",inline=False)
     help_embed.add_field(name="choice/choose/select/random",value="choose random item from a list",inline=False)
     help_embed.add_field(name="ping",value="display the ping",inline=False)
     help_embed.add_field(name="cjoke/coding_joke",value="crack a coding related joke",inline=False)
