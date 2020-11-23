@@ -21,10 +21,10 @@ say hi
 - uthere/areuthere
 
 ask are you there
--insult
+- insult
 
 insult someone with a gif
--troll/destroy
+- troll/destroy
 
 troll someone with a line
 - goodmorning/gm
