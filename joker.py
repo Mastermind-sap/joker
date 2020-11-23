@@ -4,6 +4,7 @@ from discord.ext import commands,tasks
 from itertools import cycle
 import pyjokes
 import joke_generator
+import requests
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -25,7 +26,8 @@ async def help(ctx):
     help_embed.add_field(name="clean/clear",value="one with managing messages permission can delete n number of msgs from a channel",inline=False)
     help_embed.add_field(name="hi/hello",value="say hi",inline=False)
     help_embed.add_field(name="uthere/areuthere",value="ask are you there",inline=False)
-    help_embed.add_field(name="insult/troll",value="insult someone",inline=False)
+    help_embed.add_field(name="insult",value="insult someone with a gif",inline=False)
+    help_embed.add_field(name="troll/destroy",value="troll someone with a line",inline=False)
     help_embed.add_field(name="goodmorning/gm",value="wish goodmorning",inline=False)
     help_embed.add_field(name="goodnight/goodn8/nightynight/gn",value="wish goodnight",inline=False)
     help_embed.add_field(name="bye/sayonara/adios",value="say bye",inline=False)
@@ -137,12 +139,20 @@ insult_urls=["https://media.tenor.com/images/19c50486ee6b472aba2817024c5ee4a5/te
         "https://media.tenor.com/images/bc0fd16a9423fbe24127f8cccf247846/tenor.gif",
         "https://media.tenor.com/images/e8713cf0d9b7fc9d03215c394b8ffa0b/tenor.gif",
         "https://media.tenor.com/images/ba01b4ab2950342c129876164aa2d70d/tenor.gif"]        
-@bot.command(aliases=["troll"])
+@bot.command()
 async def insult(ctx, user : discord.Member =None):
     if not user:
         user=ctx.author
     await ctx.send('Insulting'+user.mention)
     await ctx.send(random.choice(insult_urls))
+
+@bot.command(aliases=["destroy"])
+async def troll(ctx, user : discord.Member =None):
+    if not user:
+        user=ctx.author
+    url = "https://evilinsult.com/generate_insult.php?lang=en&type=txt"
+    st = requests.get(url)
+    await ctx.send(str(user.mention)+st.content.decode("utf-8"))
 
 gm_urls=["https://media.tenor.com/images/027da4b11ab91e5c0dffb388a8c6f060/tenor.gif",
     "https://media.tenor.com/images/84a8c2f0a681c3fc7db9b7084122d5a1/tenor.gif",
