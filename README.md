@@ -67,9 +67,12 @@ say hi
 - uthere/areuthere
 
 ask are you there
-- insult/troll
+- insult
 
-insult someone
+insult someone with a gif
+- troll/destroy
+
+troll someone with a line
 - goodmorning/gm
 
 wish goodmorning
@@ -81,7 +84,7 @@ wish goodnight
 say bye
 - spam
 
-spam some text n number of times
+only admins can spam some text n number of times using this command
 - choice/choose/select/random
 
 choose random item from a list
