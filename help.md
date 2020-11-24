@@ -51,5 +51,8 @@ crack a coding related joke
 - joke
 
 crack a joke
+- meme/memify
+
+sends a meme
 
 ---
