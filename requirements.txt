@@ -5,4 +5,16 @@ async-timeout==3.0.1
 pyjokes
 joke_generator
 requests==2.25.0
+<<<<<<< HEAD
 xkcd==2.4.2
+=======
+certifi==2020.11.8
+chardet==3.0.4
+idna==2.10
+praw==7.1.0
+prawcore==1.5.0
+six==1.15.0
+update-checker==0.18.0
+urllib3==1.26.2
+websocket-client==0.57.0
+>>>>>>> 822d52776e7d14db81f519b6b3d569a81e24f8c2
