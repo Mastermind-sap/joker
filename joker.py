@@ -5,6 +5,7 @@ from itertools import cycle
 import pyjokes
 import joke_generator
 import requests
+import apis.redditapi as redditapi
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -39,30 +40,35 @@ async def help(ctx):
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
-    
+
+
 def is_it_me(ctx):
     return str(ctx.author.id) == mainaccid
+
 
 @bot.event
 async def on_ready():
     change_status.start()
     print('We have logged in as {0.user}'.format(bot))
 
+
 @tasks.loop(seconds=10)
 async def change_status():
-    await bot.change_presence(status=discord.Status.online,activity=discord.Game(next(status)))
-    
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(next(status)))  # noqa
+
+
 @bot.event
 async def on_member_join(member):
     for channel in member.server.channels:
-        if str(channel)=="general":
-            await bot.send_message(f"""WELCOME TO THE SERVER {member.mention}""")
+        if str(channel) == "general":
+            await bot.send_message(f"""WELCOME TO THE SERVER {member.mention}""")   # noqa
+
 
 @bot.event
-async def on_command_error(ctx,error):
+async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please pass in all required arguments!")
-    elif isinstance(error,commands.CommandNotFound):
+    elif isinstance(error, commands.CommandNotFound):
         await ctx.send("Invalid command!")
 
 @bot.command()
@@ -84,22 +90,17 @@ async def getdp(ctx, member: discord.Member = None):
         member = ctx.author
     await ctx.send(member.avatar_url)
 
-##@bot.command(aliases=["memeify"])
-##@commands.check(is_it_me)
-##async def meme(ctx, member: discord.Member = None):
-##    if not member:
-##        member = ctx.author
 
-        
-@bot.command(aliases=["dm","pvtmessage"])
-async def pm(ctx , member: discord.Member = None,*,text):
+@bot.command(aliases=["dm", "pvtmessage"])
+async def pm(ctx, member: discord.Member = None, *, text):
     if not member:
         member = ctx.author
     await member.send(text)
 
+
 @bot.command(aliases=["clean"])
 @commands.has_permissions(manage_messages=True)
-async def clear(ctx,amount=1):
+async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount+1)
 
 hi_urls=["https://media.tenor.com/images/89875b33e32cdd0d1777553653a6717c/tenor.gif",
@@ -131,6 +132,7 @@ async def areuthere(ctx, user : discord.Member = None):
     await ctx.send('Are You There? '+user.mention)
     await ctx.send(random.choice(uthere_urls))
 
+
 insult_urls=["https://media.tenor.com/images/19c50486ee6b472aba2817024c5ee4a5/tenor.gif",
         "https://media.tenor.com/images/2141dce8c8a73632749ede31cb6dd215/tenor.gif",
         "https://media.tenor.com/images/7397ff5d71c043634233a2be91053d8a/tenor.gif",
@@ -138,7 +140,7 @@ insult_urls=["https://media.tenor.com/images/19c50486ee6b472aba2817024c5ee4a5/te
         "https://media.tenor.com/images/256b5c5dc88a7c74f010ee0505d931ee/tenor.gif",
         "https://media.tenor.com/images/bc0fd16a9423fbe24127f8cccf247846/tenor.gif",
         "https://media.tenor.com/images/e8713cf0d9b7fc9d03215c394b8ffa0b/tenor.gif",
-        "https://media.tenor.com/images/ba01b4ab2950342c129876164aa2d70d/tenor.gif"]        
+        "https://media.tenor.com/images/ba01b4ab2950342c129876164aa2d70d/tenor.gif"]
 @bot.command()
 async def insult(ctx, user : discord.Member =None):
     if not user:
@@ -146,10 +148,11 @@ async def insult(ctx, user : discord.Member =None):
     await ctx.send('Insulting'+user.mention)
     await ctx.send(random.choice(insult_urls))
 
+
 @bot.command(aliases=["destroy"])
-async def troll(ctx, user : discord.Member =None):
+async def troll(ctx, user: discord.Member = None):
     if not user:
-        user=ctx.author
+        user = ctx.author
     url = "https://evilinsult.com/generate_insult.php?lang=en&type=txt"
     st = requests.get(url)
     await ctx.send(str(user.mention)+st.content.decode("utf-8"))
@@ -175,10 +178,12 @@ gn_urls=["https://media.tenor.com/images/dec42b8d70a58a62cf106ecac1023d60/tenor.
     "https://media.tenor.com/images/819d5eb6ae504c1b94eacdfa13878688/tenor.gif",
     "https://media.tenor.com/images/4a92c3367012116430b31d2315a5b701/tenor.gif",
     "https://media.tenor.com/images/2e89a44860147edcc6349ed3da9c234f/tenor.gif"]
-@bot.command(aliases=["goodn8","nightynight","gn"])
-async def goodnight(ctx, user : discord.Member =None):
+
+
+@bot.command(aliases=["goodn8", "nightynight", "gn"])
+async def goodnight(ctx, user: discord.Member = None):
     if not user:
-        user=ctx.author
+        user = ctx.author
     await ctx.send('Good Night! '+user.mention)
     await ctx.send(random.choice(gn_urls))
 
@@ -192,35 +197,50 @@ bye_urls=["https://media.tenor.com/images/5becc8db5702cc2f9affea9559f10cd1/tenor
      "https://media.tenor.com/images/a13b5ae7e6efa9391c2feacaaeaf5656/tenor.gif",
      "https://media.tenor.com/images/9c6383ca347da05c30cc4dbb986d1ca2/tenor.gif",
      "https://media.tenor.com/images/9b282281b97686e155961a542dc57f87/tenor.gif",
-     "https://media.tenor.com/images/a211545ceb0e837aba11287fae0b4dce/tenor.gif"]    
-@bot.command(aliases=["sayonara","adios"])
-async def bye(ctx, user : discord.Member =None):
+     "https://media.tenor.com/images/a211545ceb0e837aba11287fae0b4dce/tenor.gif"]
+
+
+@bot.command(aliases=["sayonara", "adios"])
+async def bye(ctx, user: discord.Member = None):
     if not user:
-        user=ctx.author
+        user = ctx.author
     await ctx.send('Bye! '+user.mention)
     await ctx.send(random.choice(bye_urls))
 
+
 @bot.command()
 @commands.has_permissions(administrator=True)
-async def spam(ctx, times,*,text):
+async def spam(ctx, times, *, text):
     for i in range(int(times)):
         await ctx.send(text)
 
-@bot.command(aliases=["choose","select","random"])
-async def choice(ctx,options="yes ,no"):
+
+@bot.command(aliases=["choose", "select", "random"])
+async def choice(ctx, options="yes ,no"):
     await ctx.send(random.choice(options.split(",")))
+
 
 @bot.command()
 async def ping(ctx):
     await ctx.send(f'Pong! {round(bot.latency *1000)}ms')
-    
+
+
 @bot.command(aliases=["cjoke"])
 async def coding_joke(ctx):
     await ctx.send(pyjokes.get_joke())
 
+
 @bot.command()
 async def joke(ctx):
     await ctx.send(joke_generator.generate())
+
+
+@bot.commands()
+async def memes(ctx):  # pylint: disable=all
+    title, text, url = redditapi.memes()
+    await ctx.send(title)
+    await ctx.send(url)
+    await ctx.send(text)
 
 
 bot.run(token)
