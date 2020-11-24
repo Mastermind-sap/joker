@@ -5,6 +5,7 @@ from itertools import cycle
 import pyjokes
 import joke_generator
 import requests
+import xkcd
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -36,7 +37,8 @@ async def help(ctx):
     help_embed.add_field(name="ping",value="display the ping",inline=False)
     help_embed.add_field(name="cjoke/coding_joke",value="crack a coding related joke",inline=False)
     help_embed.add_field(name="joke",value="crack a joke",inline=False)
-    help_embed.add_field(name="meme/memify",value="sends a meme",inline=False)
+    help_embed.add_field(name="meme/memify",value="sends a random meme",inline=False)
+    help_embed.add_field(name="comic/xkcd",value="sends a random comic strip",inline=False)
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
@@ -225,5 +227,22 @@ async def meme(ctx, user : discord.Member =None):
     url = f"https://imgflip.com/i/?={text}"
     await ctx.send(url)
 
+##@bot.command()
+##async def garfield(ctx, user : discord.Member =None):
+##    if not user:
+##        user=ctx.author
+##    await ctx.send("Here's your garfield comic strip "+user.mention)
+##    url = "https://www.bgreco.net/garfield/"
+##    r=requests.get(url)
+##    await ctx.send(r.content.decode("utf-8"))
 
+@bot.command(aliases=["xkcd"])
+async def comic(ctx, user : discord.Member =None):
+    if not user:
+        user=ctx.author
+    await ctx.send("Here's your comic "+user.mention)
+    url = xkcd.Comic.getImageLink(xkcd.getRandomComic())
+    await ctx.send(url)
+
+    
 bot.run(token)
