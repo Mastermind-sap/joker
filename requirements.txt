@@ -5,3 +5,4 @@ async-timeout==3.0.1
 pyjokes
 joke_generator
 requests==2.25.0
+xkcd==2.4.2
