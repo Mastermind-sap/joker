@@ -99,7 +99,10 @@ crack a coding related joke
 crack a joke
 - meme/memify
 
-sends a meme
+sends a random meme
+- comic/xkcd
+
+sends a random comic strip
 
 ---
 
