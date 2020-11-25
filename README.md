@@ -106,6 +106,9 @@ sends a random comic strip
 - search
 
 search for query and return n number of results (max n=5)
+- server
+
+get server details
 
 ---
 
