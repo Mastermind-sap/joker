@@ -6,3 +6,4 @@ pyjokes
 joke_generator
 requests==2.25.0
 xkcd==2.4.2
+google==3.0.0
