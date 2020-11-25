@@ -58,11 +58,10 @@
 | `!joker getdp`       | get the profile picture of the mentioned user             | `getprofilepic`,`dp`                | `user mention`                          |
 | `!joker choice`      | choose random item from a list                            | `choose`,`choose`,`select`,`random` | `list of items`                         |
 | `!joker clear`       | clear a given number of messages from the chat            | `clean`                             | `no. of texts to clean`                 |
-<<<<<<< HEAD
+
 | `!joker server`      | Get server information                                    | `-`                                 | `-`                                     |
 | `!joker search`      | search for query and return n number of results (max n=5) | `-`                                 | `no. of results to be fetched`          |
-=======
->>>>>>> fc58b44f8685262b7d81da4f4d9b18fc2bd8889d
+
 
 
 
@@ -73,6 +72,7 @@
 - New commands will keep comming now and then.
 - Please use the bot in a fair manner such that it hurts no ones feeling.
 - Any suggestions regarding new commands ,modification are always welcome.
+
 
 ## Some Cool Discord built-in commands:
 ```

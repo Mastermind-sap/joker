@@ -8,7 +8,9 @@ import requests
 import xkcd
 import googlesearch as gs
 import giphypop as gp
+
 import apis.redditapi as redditapi
+
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -302,12 +304,14 @@ async def server(ctx):
     embed.add_field(name="Member Count",value=memcount,inline=True)
 
 
+
 async def comic(ctx, user: discord.Member = None):
     if not user:
         user = ctx.author
     await ctx.send("Here's your comic "+user.mention)
     url = xkcd.Comic.getImageLink(xkcd.getRandomComic())
     await ctx.send(url)
+
 
     await ctx.send(embed=embed)
 
@@ -324,6 +328,7 @@ async def randomgif(ctx):
         a=gp.Giphy()
         b=a.random_gif()
         await ctx.send(b.url)
+
 
 @bot.command()
 async def gifs(ctx, subreddit):  # pylint: disable=missing-function-docstring
@@ -345,5 +350,8 @@ async def memes(ctx, subreddit):  # pylint: disable=missing-function-docstring
     await ctx.send(url)
     await ctx.send(text)
 
+
+
+        
 
 bot.run(token)

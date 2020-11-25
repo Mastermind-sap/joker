@@ -63,14 +63,14 @@ sends a random meme
 - comic/xkcd
 
 sends a random comic strip
-<<<<<<< HEAD
+
 - search
 
 search for query and return n number of results (max n=5)
 - server
 
 get server details
-=======
->>>>>>> fc58b44f8685262b7d81da4f4d9b18fc2bd8889d
+
+
 
 ---
