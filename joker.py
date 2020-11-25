@@ -41,6 +41,7 @@ async def help(ctx):
     help_embed.add_field(name="meme/memify",value="sends a random meme",inline=False)
     help_embed.add_field(name="comic/xkcd",value="sends a random comic strip",inline=False)
     help_embed.add_field(name="search",value="search for query and return n number of results (max n=5)",inline=False)
+    help_embed.add_field(name="server",value="get server details",inline=False)
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
@@ -255,5 +256,28 @@ async def search(ctx,times=1,*,query):
         s=gs.search(query,"com","en",num=times,stop=times,pause=2.0)
         for i in s:
             await ctx.send(i)
-    
+
+@bot.command()
+async def server(ctx):
+    name=str(ctx.guild.name)
+    description=str(ctx.guild.description)
+    owner=str(ctx.guild.owner)
+    _id = str(ctx.guild.id)
+    region=str(ctx.guild.region)
+    memcount=str(ctx.guild.member_count)
+    icon = str(ctx.guild.icon_url)
+
+    embed=discord.Embed(
+        title=name +" Server Information",
+        description=description,
+        color=discord.Color.blue()
+        )
+    embed.set_thumbnail(url=icon)
+    embed.add_field(name="Owner",value=owner,inline=True)
+    embed.add_field(name="Server Id",value=_id,inline=True)
+    embed.add_field(name="Region",value=region,inline=True)
+    embed.add_field(name="Member Count",value=memcount,inline=True)
+
+    await ctx.send(embed=embed)
+ 
 bot.run(token)
