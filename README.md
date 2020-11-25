@@ -2,8 +2,11 @@
 # joker
 #### My discord bot [W.I.P.]
  ---
- [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
- [![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)
+ [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+ [![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://github.com/Mastermind-sap/joker)
+ 
+ [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://github.com/Mastermind-sap/joker)
+ [![forthebadge](https://img.shields.io/badge/deploy_to-heroku-997FBC.svg?style=for-the-badge&logo=Heroku)](https://dashboard.heroku.com/apps)
  
 ## A simple discord bot created using python library discord.py rewrite.
 
