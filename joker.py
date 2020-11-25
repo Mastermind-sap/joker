@@ -6,6 +6,7 @@ import pyjokes
 import joke_generator
 import requests
 import xkcd
+import googlesearch as gs
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -39,6 +40,7 @@ async def help(ctx):
     help_embed.add_field(name="joke",value="crack a joke",inline=False)
     help_embed.add_field(name="meme/memify",value="sends a random meme",inline=False)
     help_embed.add_field(name="comic/xkcd",value="sends a random comic strip",inline=False)
+    help_embed.add_field(name="search",value="search for query and return n number of results (max n=5)",inline=False)
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
@@ -238,11 +240,20 @@ async def meme(ctx, user : discord.Member =None):
 
 @bot.command(aliases=["xkcd"])
 async def comic(ctx, user : discord.Member =None):
-    if not user:
-        user=ctx.author
-    await ctx.send("Here's your comic "+user.mention)
-    url = xkcd.Comic.getImageLink(xkcd.getRandomComic())
-    await ctx.send(url)
+    async with ctx.typing():
+        if not user:
+            user=ctx.author
+        await ctx.send("Here's your comic "+user.mention)
+        url = xkcd.Comic.getImageLink(xkcd.getRandomComic())
+        await ctx.send(url)
 
+@bot.command()
+async def search(ctx,times=1,*,query):
+    async with ctx.typing():
+        if times>5:
+            times=5
+        s=gs.search(query,"com","en",num=times,stop=times,pause=2.0)
+        for i in s:
+            await ctx.send(i)
     
 bot.run(token)
