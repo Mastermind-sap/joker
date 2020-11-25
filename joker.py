@@ -7,6 +7,7 @@ import joke_generator
 import requests
 import xkcd
 import googlesearch as gs
+import giphypop as gp
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -42,6 +43,8 @@ async def help(ctx):
     help_embed.add_field(name="comic/xkcd",value="sends a random comic strip",inline=False)
     help_embed.add_field(name="search",value="search for query and return n number of results (max n=5)",inline=False)
     help_embed.add_field(name="server",value="get server details",inline=False)
+    help_embed.add_field(name="gif/gifs",value="get a gif according to query you give",inline=False)
+    help_embed.add_field(name="randomgif/randg",value="get a random gif",inline=False)
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
@@ -279,5 +282,19 @@ async def server(ctx):
     embed.add_field(name="Member Count",value=memcount,inline=True)
 
     await ctx.send(embed=embed)
- 
+
+@bot.command(aliases=["gifs"])
+async def gif(ctx,*,query):
+    async with ctx.typing():
+        img=gp.translate(query)
+        await ctx.send(img.media_url)
+        
+
+@bot.command(aliases=["randg"])
+async def randomgif(ctx):
+    async with ctx.typing():
+        a=gp.Giphy()
+        b=a.random_gif()
+        await ctx.send(b.url)
+        
 bot.run(token)
