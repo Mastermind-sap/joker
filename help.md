@@ -70,6 +70,12 @@ search for query and return n number of results (max n=5)
 - server
 
 get server details
+- gif/gifs
+
+get a gif according to query you give
+- randomgif/randg
+
+get a random gif
 
 
 

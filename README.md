@@ -2,8 +2,11 @@
 # joker
 #### My discord bot [W.I.P.]
  ---
- [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
- [![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)
+ [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+ [![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://github.com/Mastermind-sap/joker)
+ 
+ [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://github.com/Mastermind-sap/joker)
+ [![forthebadge](https://img.shields.io/badge/deploy_to-heroku-997FBC.svg?style=for-the-badge&logo=Heroku)](https://dashboard.heroku.com/apps)
  
 #### A simple discord bot created using python library discord.py rewrite.
 
@@ -58,9 +61,9 @@
 | `!joker getdp`       | get the profile picture of the mentioned user             | `getprofilepic`,`dp`                | `user mention`                          |
 | `!joker choice`      | choose random item from a list                            | `choose`,`choose`,`select`,`random` | `list of items`                         |
 | `!joker clear`       | clear a given number of messages from the chat            | `clean`                             | `no. of texts to clean`                 |
-
 | `!joker server`      | Get server information                                    | `-`                                 | `-`                                     |
 | `!joker search`      | search for query and return n number of results (max n=5) | `-`                                 | `no. of results to be fetched`          |
+
 
 
 
