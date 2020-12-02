@@ -69,5 +69,12 @@ get a gif according to query you give
 - randomgif/randg
 
 get a random gif
+- newrole
+
+admin can create a new role
+- giverole
+
+admin can assign any member a role
+
 
 ---
