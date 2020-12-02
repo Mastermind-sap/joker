@@ -45,6 +45,8 @@ async def help(ctx):
     help_embed.add_field(name="server",value="get server details",inline=False)
     help_embed.add_field(name="gif/gifs",value="get a gif according to query you give",inline=False)
     help_embed.add_field(name="randomgif/randg",value="get a random gif",inline=False)
+    help_embed.add_field(name="newrole",value="admin can create a new role",inline=False)
+    help_embed.add_field(name="giverole",value="admin can assign any member a role",inline=False)
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
@@ -296,5 +298,38 @@ async def randomgif(ctx):
         a=gp.Giphy()
         b=a.random_gif()
         await ctx.send(b.url)
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def newrole(ctx, *, rolename=None):
+    if not rolename:
+        await ctx.send("You forgot to provide a name!")
+    else:
+        role = await ctx.guild.create_role(name=rolename, mentionable=True)
+        await ctx.author.add_roles(role)
+        await ctx.send(f"Successfully created and assigned {role.mention}!")
+
+##DONOT USE THIS THEN ANYBODY IN SERVER CAN ASSIGN HIMSELF TO ANYROLE
+##@bot.command()
+##async def takerole(ctx,*,rolename=None):
+##    if not rolename:
+##        await ctx.send("You forgot to provide a name!")
+##    else:
+##        role = discord.utils.get(ctx.author.guild.roles,name=rolename)
+##        await ctx.author.add_roles(role)
+##        await ctx.send(f"Successfully assigned {ctx.author.mention} to {rolename}!")
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def giverole(ctx,member : discord.Member = None,*,rolename=None):
+    if not member:
+        member = ctx.author
+    if not rolename:
+        await ctx.send("You forgot to provide a name of role!")
+    else:
+        role = discord.utils.get(member.guild.roles,name=rolename)
+        await member.add_roles(role)
+        await ctx.send(f"Successfully assigned {member.mention} to {rolename}!")
+        
         
 bot.run(token)
