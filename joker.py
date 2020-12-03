@@ -75,6 +75,8 @@ async def on_command_error(ctx,error):
         await ctx.send("Please pass in all required arguments!")
     elif isinstance(error,commands.CommandNotFound):
         await ctx.send("Invalid command!")
+    elif isinstance(error,commands.MissingPermissions):
+        await ctx.send("You are not authorized to use this command!")
 
 @bot.command()
 async def mention(ctx, user : discord.Member):
