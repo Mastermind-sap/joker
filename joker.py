@@ -8,6 +8,7 @@ import requests
 import xkcd
 import googlesearch as gs
 import giphypop as gp
+import json
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -47,6 +48,7 @@ async def help(ctx):
     help_embed.add_field(name="randomgif/randg",value="get a random gif",inline=False)
     help_embed.add_field(name="newrole",value="admin can create a new role",inline=False)
     help_embed.add_field(name="giverole",value="admin can assign any member a role",inline=False)
+    help_embed.add_field(name="quote",value="send a random quote",inline=False)
     #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
     help_embed.set_footer(text="Requested by: "+str(author))
     await author.send(embed=help_embed)
@@ -332,6 +334,12 @@ async def giverole(ctx,member : discord.Member = None,*,rolename=None):
         role = discord.utils.get(member.guild.roles,name=rolename)
         await member.add_roles(role)
         await ctx.send(f"Successfully assigned {member.mention} to {rolename}!")
-        
+
+@bot.command()
+async def quote(ctx):
+    response = requests.get("https://zenquotes.io/api/random")
+    json_data = json.loads(response.text)
+    quote = json_data[0]['q'] + " -" + json_data[0]['a']
+    await ctx.send(quote)
         
 bot.run(token)
