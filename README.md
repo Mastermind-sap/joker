@@ -124,6 +124,9 @@ admin can create a new role
 - giverole
 
 admin can assign any member a role
+- quote
+
+send a random quote
 
 ---
 
