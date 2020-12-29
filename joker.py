@@ -341,5 +341,22 @@ async def quote(ctx):
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
     await ctx.send(quote)
-        
+
+##DANGEROUS-> "https://stackoverflow.com/questions/34385014/how-do-i-set-the-output-of-exec-to-variable-python"
+##eval command->executes any python code and displays output(work in progress)
+##import io
+##from contextlib import redirect_stdout
+##@bot.command(aliases=["eval"])
+##@commands.has_permissions(administrator=True)
+##@commands.check(is_it_me)
+##async def e(ctx,*,code):
+##    try:
+##        stdout = io.StringIO()
+##        with redirect_stdout(stdout):
+##            exec(compile(code,'mulstring', 'exec'))
+##        out = stdout.getvalue()
+##        await ctx.send(out)
+##    except:
+##        await ctx.send("Error")
+    
 bot.run(token)
