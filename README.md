@@ -154,14 +154,3 @@ send a random quote
 ### For code of shhh bot [click here](https://github.com/Mastermind-sap/discord-bot/tree/main/shhh-discord)
 
 ---
-
-#### Credits:
-
-<img src="https://avatars0.githubusercontent.com/u/64089730?s=460&u=eabe670f71fc07181965527702343424e82ddfd5&v=4" width="100">
-
-- `troll/destroy` command taken from [Jaydeep Das
-'s](https://github.com/JDeepD) repo [Mlon-Eusk](https://github.com/JDeepD/Mlon-Eusk).
-
-###### Shoutout: Check out his bot and his other repos
-
----
