@@ -355,8 +355,8 @@ async def quote(ctx):
 ##        with redirect_stdout(stdout):
 ##            exec(compile(code,'mulstring', 'exec'))
 ##        out = stdout.getvalue()
-##        await ctx.send(out)
+##        await ctx.send("```py\n"+out+"```")
 ##    except:
-##        await ctx.send("Error")
+##        await ctx.send("```py\n Error ```")
     
 bot.run(token)
