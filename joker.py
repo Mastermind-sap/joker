@@ -350,13 +350,21 @@ async def quote(ctx):
 ##@commands.has_permissions(administrator=True)
 ##@commands.check(is_it_me)
 ##async def e(ctx,*,code):
-##    try:
-##        stdout = io.StringIO()
-##        with redirect_stdout(stdout):
-##            exec(compile(code,'mulstring', 'exec'))
-##        out = stdout.getvalue()
-##        await ctx.send("```py\n"+out+"```")
-##    except:
-##        await ctx.send("```py\n Error ```")
-    
+##    if code.startswith("```python\n"):
+##        code=code[9:-3]
+##    elif code.startswith("```py\n"):
+##        code=code[5:-3]
+##    restrictions=["import os","import pyautogui","import sys","import cv2"]    
+##    if not any(restriction in code for restriction in restrictions):
+##        try:
+##            stdout = io.StringIO()
+##            with redirect_stdout(stdout):
+##                exec(compile(code,'mulstring', 'exec'))
+##            out = stdout.getvalue()
+##            await ctx.send("```py\n"+out+"```")
+##        except:
+##            await ctx.send("```py\n Error ```")
+##    else:
+##        await ctx.send("```py\n Sorry this code is restricted due to security reasons ```")
+
 bot.run(token)
