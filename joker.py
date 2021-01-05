@@ -365,6 +365,8 @@ async def quote(ctx):
     await ctx.send(quote)
 
 ##DANGEROUS-> "https://stackoverflow.com/questions/34385014/how-do-i-set-the-output-of-exec-to-variable-python"
+##BUT RUNNING FROM SERVERS LIKE heroku TILL NOW HAVE NOT SHOWN ANY AFFECT ON THE CODING COMPUTER EVEN WITH OS MODULE CODES
+##THE OUTPUT IS : "py"
 ##eval command->executes any python code and displays output(work in progress)
 ##import io
 ##from contextlib import redirect_stdout
