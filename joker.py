@@ -376,7 +376,7 @@ async def quote(ctx):
 ##        code=code[9:-3]
 ##    elif code.startswith("```py\n"):
 ##        code=code[5:-3]
-##    restrictions=["import os","import pyautogui","import sys","import cv2"]    
+##    restrictions=["import os","import pyautogui","import sys","import cv2","from os","from pyautogui","from sys","from cv2"]    
 ##    if not any(restriction in code for restriction in restrictions):
 ##        try:
 ##            stdout = io.StringIO()
