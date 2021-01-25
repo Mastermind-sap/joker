@@ -14,7 +14,7 @@ Use these commands to manage the server
 |pm/dm/pvtmessage|sends private message to mentioned user|
 |clean/clear|one with managing messages permission can delete n number of msgs from a channel|
 |server|get server details|
-|spam|only admins can spam some text n number of times using this command|
+|spam|only admins can spam some text n(n<=20) number of times using this command|
 |ping|display the ping|
 |newrole|admin can create a new role|
 |giverole|admin can assign any member a role|
