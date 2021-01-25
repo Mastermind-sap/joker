@@ -51,8 +51,8 @@ Use these commands to have a bit of fun
 
 ### Music commands
 
-#### WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
-#### Only for educational purposes
+####  :negative_squared_cross_mark: WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
+####  :negative_squared_cross_mark: Only for educational purposes
 
 Use these commands to play music/youtube audio
 
