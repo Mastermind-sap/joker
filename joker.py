@@ -39,7 +39,7 @@ async def help(ctx):
     server_embed.add_field(name="pm/dm/pvtmessage",value="sends private message to mentioned user",inline=False)
     server_embed.add_field(name="clean/clear",value="one with managing messages permission can delete n number of msgs from a channel",inline=False)
     server_embed.add_field(name="server",value="get server details",inline=False)
-    server_embed.add_field(name="spam",value="only admins can spam some text n number of times using this command",inline=False)
+    server_embed.add_field(name="spam",value="only admins can spam some text n(n<=20) number of times using this command",inline=False)
     server_embed.add_field(name="ping",value="display the ping",inline=False)
     server_embed.add_field(name="newrole",value="admin can create a new role",inline=False)
     server_embed.add_field(name="giverole",value="admin can assign any member a role",inline=False)
@@ -255,6 +255,9 @@ async def bye(ctx, user : discord.Member =None):
 @bot.command()
 @commands.has_permissions(administrator=True)
 async def spam(ctx, times,*,text):
+    if int(times)>20:
+        times=20
+        await ctx.send(ctx.author.mention+" sorry but spam command is limited to 20")
     for i in range(int(times)):
         await ctx.send(text)
 
