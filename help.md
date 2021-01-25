@@ -1,82 +1,77 @@
 # Joker Help
 ## Use !joker before any command
-- mention
 
-mentions a user
-- whois/info/details
+---
 
-returns details of mentioned user
-- getdp/getprofilepic/dp
+### Server commands
+Use these commands to manage the server
 
-returns the profile pic of mentioned user
-- pm/dm/pvtmessage
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|mention|mentions a user|
+|whois/info/details|returns details of mentioned user|
+|getdp/getprofilepic/dp|returns the profile pic of mentioned user|
+|pm/dm/pvtmessage|sends private message to mentioned user|
+|clean/clear|one with managing messages permission can delete n number of msgs from a channel|
+|server|get server details|
+|spam|only admins can spam some text n number of times using this command|
+|ping|display the ping|
+|newrole|admin can create a new role|
+|giverole|admin can assign any member a role|
 
-sends private message to mentioned user
-- clean/clear
+---
 
-one with managing messages permission can delete n number of msgs from a channel
-- hi/hello
+### Greeting commands
+Use these commands to greet other members
 
-say hi
-- uthere/areuthere
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|hi/hello|say hi|
+|uthere/areuthere|ask are you there|
+|goodmorning/gm|wish goodmorning|
+|goodnight/goodn8/nightynight/gn|wish goodnight|
+|bye/sayonara/adios|say bye|
 
-ask are you there
-- insult
+---
 
-insult someone with a gif
-- troll/destroy
+### Fun commands
+Use these commands to have a bit of fun
 
-troll someone with a line
-- goodmorning/gm
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|insult|insult someone with a gif|
+|troll/destroy|troll someone with a line|
+|cjoke/coding_joke|crack a coding related joke|
+|joke|crack a joke|
+|meme/memify|sends a random meme|
+|comic/xkcd|sends a random comic strip|
+|choice/choose/select/random|choose random item from a list|
 
-wish goodmorning
-- goodnight/goodn8/nightynight/gn
+---
 
-wish goodnight
-- bye/sayonara/adios
+### Music commands
+Use these commands to play music/youtube audio
+-WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
+-only for educational purposes
 
-say bye
-- spam
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|play/p|play some audio from youtube video link or from the given query|
+|leave/disconnect/exit|make the bot leave the voice channel|
+|pause|pause current music|
+|resume|resume current music|
+|stop|stop current music|
 
-only admins can spam some text n number of times using this command
-- choice/choose/select/random
+---
 
-choose random item from a list
-- ping
+### Utility commands
+Some more utility commands
 
-display the ping
-- cjoke/coding_joke
-
-crack a coding related joke
-- joke
-
-crack a joke
-- meme/memify
-
-sends a random meme
-- comic/xkcd
-
-sends a random comic strip
-- search
-
-search for query and return n number of results (max n=5)
-- server
-
-get server details
-- gif/gifs
-
-get a gif according to query you give
-- randomgif/randg
-
-get a random gif
-- newrole
-
-admin can create a new role
-- giverole
-
-admin can assign any member a role
-- quote
-
-send a random quote
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|search|search for query and return n number of results (max n=5)|
+|gif/gifs|get a gif according to query you give|
+|randomgif/randg|get a random gif|
+|quote|send a random quote|
 
 ---
