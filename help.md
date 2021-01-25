@@ -50,9 +50,11 @@ Use these commands to have a bit of fun
 ---
 
 ### Music commands
+
+#### WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
+#### Only for educational purposes
+
 Use these commands to play music/youtube audio
--WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
--only for educational purposes
 
 | COMMAND | DESCRIPTION |
 | ----------- | ----------- |
