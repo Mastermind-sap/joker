@@ -9,6 +9,7 @@ import xkcd
 import googlesearch as gs
 import giphypop as gp
 import json
+from pytube import YouTube
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -66,6 +67,17 @@ async def help(ctx):
     fun_embed.add_field(name="choice/choose/select/random",value="choose random item from a list",inline=False)
     await author.send(embed=fun_embed)
 
+    #music commands
+    music_embed=discord.Embed(title="Music commands",description="Use these commands to play music/youtube audio",color=discord.Colour.red())
+    music_embed.set_thumbnail(url="https://media1.tenor.com/images/66e25c15d969c51a9158637959fcec04/tenor.gif?itemid=9872650")
+    music_embed.add_field(name="WILL NOT WORK",value="only for educational purposes(against youtube policies)",inline=False)
+    music_embed.add_field(name="play/p",value="play some audio from youtube video link or from the given query",inline=False)
+    music_embed.add_field(name="leave/disconnect/exit",value="make the bot leave the voice channel",inline=False)
+    music_embed.add_field(name="pause",value="pause current music",inline=False)
+    music_embed.add_field(name="resume",value="resume current music",inline=False)
+    music_embed.add_field(name="stop",value="stop current music",inline=False)
+    await author.send(embed=music_embed)
+    
     #other utility commands
     utility_embed=discord.Embed(title="Utility commands",description="Some more utility commands",color=discord.Colour.red())
     utility_embed.set_thumbnail(url="https://media.tenor.com/images/d18970558b618156dd0bad57bede8ac1/tenor.gif")
@@ -82,6 +94,11 @@ async def is_it_me(ctx):
     else:
         await ctx.send("ONLY MASTERMIND(owner of the bot) CAN USE THIS COMMAND")
         return False
+
+async def music_commands(ctx):
+    await ctx.send(ctx.author.mention+" all the music commands are only for educational purposes")
+    await ctx.send("Music commands are AGAINST YOUTUBE POLICIES, hence restricted :negative_squared_cross_mark: ")
+    return False
 
 @bot.event
 async def on_ready():
@@ -394,5 +411,101 @@ async def e(ctx,*,code):
             await ctx.send("```py\n Error ```")
     else:
         await ctx.send("```py\n Sorry this code is restricted due to security reasons ```")
+
+
+
+## MUSIC COMMANDS
+## AGAINST YOUTUBE POLICIES
+## ONLY FOR EDUCATIONAL PURPOSES
+## Youtube doesnot allow downloading its videos
+## DOESNOT work from heroku server as the download doesnot take place
+## ONLY FUNCTIONAL FROM PERSONAL COMPUTER (as of i know)
+        
+@commands.check(music_commands)
+@bot.command(aliases=["p"])
+async def play(ctx,*,query):
+    try:
+        voiceChannel = discord.utils.get(ctx.guild.voice_channels, name=str(ctx.message.author.voice.channel))
+        await voiceChannel.connect()
+        await ctx.send("Joined "+str(ctx.message.author.voice.channel)+" voice channel!:white_check_mark:")
+    except AttributeError:
+        await ctx.send(ctx.message.author.mention+" is not in any voice channel :negative_squared_cross_mark:")
+        return
+    except Exception as e:
+        print(e)
+    
+    url=None
+    if len(query)==0:
+        await ctx.send(ctx.message.author.mention+"you need to provide a youtube video link or any query with the play command :negative_squared_cross_mark:")
+        return
+    elif query.startswith("https://www.youtube.com/watch?v="):
+        url=query
+    else:
+        s=gs.search("https://www.youtube.com/results?search_query="+query.replace(" ","+"),"com","en",num=10,stop=10,pause=2.0)
+        for i in s:
+            if i.startswith("https://www.youtube.com/watch?v="):
+                url=i
+                break
+    if url==None:
+        await ctx.send(ctx.message.author.mention+" some error is caused :negative_squared_cross_mark:")
+        return
+    voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+    yt=YouTube(str(url))
+    yt_embed=discord.Embed(title=yt.title+":musical_note:",description=yt.description,color=discord.Colour.red())
+    yt_embed.set_thumbnail(url=yt.thumbnail_url)
+    yt_embed.add_field(name="Author: ",value=yt.author+":musical_score: ",inline=False)
+    yt_embed.add_field(name="Duration: ",value=str(yt.length)+" seconds :clock3: ",inline=False)
+    yt_embed.add_field(name="Publish date: ",value=str(yt.publish_date)+":calendar_spiral:",inline=False)
+    yt_embed.add_field(name="Rating: ",value=str(yt.rating)+":star2:",inline=False)
+    yt_embed.add_field(name="Views: ",value=str(yt.views)+":eyes:",inline=False)
+    t=yt.streams.filter(only_audio=True)
+    t[0].download(".\songs")
+    try:
+        print(".\songs\\"+yt.title+".mp4")
+        voice.play(discord.FFmpegPCMAudio(".\songs\\"+yt.title+".mp4"))
+        await ctx.send("Playing "+yt.title+" :loud_sound:")
+        await ctx.send(embed=yt_embed)
+    except Exception as e:
+        print(e)
+        await ctx.send(ctx.message.author.mention+" joker already playing audio :negative_squared_cross_mark:")
+        await ctx.send("Use stop command to stop the currently playing song and leave command to make joker exit the current voice channel")
+        return
+
+@commands.check(music_commands)    
+@bot.command(aliases=["disconnect","exit"])
+async def leave(ctx):
+    voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+    if voice.is_connected():
+        await voice.disconnect()
+        await ctx.send("Disconnected :wave:")
+    else:
+        await ctx.send("The bot is not connected to a voice channel. :negative_squared_cross_mark:")
+
+@commands.check(music_commands)
+@bot.command()
+async def pause(ctx):
+    voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+    if voice.is_playing():
+        voice.pause()
+        await ctx.send("Paused :pause_button:")
+    else:
+        await ctx.send("Currently no audio is playing. :negative_squared_cross_mark:")
+
+@commands.check(music_commands)
+@bot.command()
+async def resume(ctx):
+    voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+    if voice.is_paused():
+        voice.resume()
+        await ctx.send("Resumed :play_pause: ")
+    else:
+        await ctx.send("The audio is not paused. :negative_squared_cross_mark:")
+
+@commands.check(music_commands)
+@bot.command()
+async def stop(ctx):
+    voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+    voice.stop()
+    await ctx.send("Stopped playing :octagonal_sign: ")
 
 bot.run(token)
