@@ -46,6 +46,8 @@ Use these commands to have a bit of fun
 |meme/memify|sends a random meme|
 |comic/xkcd|sends a random comic strip|
 |choice/choose/select/random|choose random item from a list|
+|akinator/aki|Call the akinator|
+|mastermind|Play MASTERMIND -THE GUESSING GAME|
 
 ---
 
