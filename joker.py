@@ -12,6 +12,7 @@ import json
 from pytube import YouTube
 import akinator as ak
 import asyncio
+import itertools
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -68,6 +69,7 @@ async def help(ctx):
     fun_embed.add_field(name="comic/xkcd",value="sends a random comic strip",inline=False)
     fun_embed.add_field(name="choice/choose/select/random",value="choose random item from a list",inline=False)
     fun_embed.add_field(name="akinator/aki",value="Call the akinator",inline=False)
+    fun_embed.add_field(name="mastermind",value="Play MASTERMIND -THE GUESSING GAME",inline=False)
     await author.send(embed=fun_embed)
 
     #music commands
@@ -583,6 +585,55 @@ async def akinator(ctx):
     except Exception as e:
         await ctx.send(e)
 
+
+@bot.command()
+async def mastermind(ctx):
+    await ctx.send("MASTERMIND -THE GUESSING GAME")
+    await ctx.send("You will have 8 guesses to guess the four digit number")
+    answer=str(random.randrange(1000,9999))
+    def check(msg):
+        return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.isdigit()
+    def check_numbers(guess):
+        num_correct=0
+        a=list(answer)
+        b=list(guess)
+        for i in (b):
+            if i in (a):
+                a.remove(i)
+                b.remove(i)
+                num_correct+=1
+        return num_correct
+
+    def check_position(guess):
+        pos_correct=0
+        for (i,j) in zip(list(guess),list(answer)):
+            if i==j:
+                pos_correct+=1
+        return pos_correct
+    try:
+        for i in range(8):
+            await ctx.send("Guess: ")
+            try:
+                guess = await bot.wait_for("message", check=check , timeout=30)
+                guess=guess.content
+            except asyncio.TimeoutError:
+                await ctx.send("Sorry you took too long to respond!(waited for 30sec)")
+                await ctx.send("Game cancelled")
+                return
+            if (guess.isnumeric()) and (int(guess) in range(1000,10000)) and (guess!=answer):
+                await ctx.send("You got "+str(check_numbers(guess))+" digits correct")
+                await ctx.send("You got "+str(check_position(guess))+" digits in correct position")
+            elif (guess==answer):
+                await ctx.send("YOU WON! The correct number is indeed "+answer)
+                break
+            else:
+                await ctx.send("Bad guess! The number needs to be 4-digit")
+        else:
+            await ctx.send("YOU LOOSE! You exhausted all your eight guesses")
+            await ctx.send("The correct number is indeed "+answer)
+
+    except Exception as e:
+        await ctx.send(e)
 
         
 bot.run(token)
