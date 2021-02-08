@@ -9,25 +9,6 @@
  
 ## A simple discord bot created using python library discord.py rewrite.
 
-### [Requirements](https://github.com/Mastermind-sap/joker/blob/main/requirements.txt)
-- git+https://github.com/Rapptz/discord.py
-- dnspython==1.16.0
-- PyNaCl==1.3.0
-- async-timeout==3.0.1
-- pyjokes
-- joke_generator
-
----
-### Steps to proceed(if you want to make your own bot or else you can invite my bot to your server):
-
-1. First make a discord application for your bot [here](https://discord.com/developers/applications)
-2. Install the packages in [requirements.txt](https://github.com/Mastermind-sap/joker/blob/main/requirements.txt)
-3. Save your bot token [here](https://github.com/Mastermind-sap/joker/blob/main/token.txt)
-4. Save your main account id [here](https://github.com/Mastermind-sap/joker/blob/main/mainaccid.txt)
-5. Save the other necessary details [here](https://github.com/Mastermind-sap/joker/blob/main/info.txt)
-6. Run `joker.py` 
-
-##### Note: steps 4 and 5 may be skipped now but it can be necessary in further updates.
 ---
 
 # Invite joker/whysoserious bot(my bot) to your server
@@ -49,31 +30,81 @@
 # [Joker Help](https://github.com/Mastermind-sap/joker/blob/main/help.md)
 ## Use !joker before any command
 
-#### View all bot commands [here](https://github.com/Mastermind-sap/joker/blob/main/help.md)
+---
+
+### Server commands
+Use these commands to manage the server
+
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|mention|mentions a user|
+|whois/info/details|returns details of mentioned user|
+|getdp/getprofilepic/dp|returns the profile pic of mentioned user|
+|pm/dm/pvtmessage|sends private message to mentioned user|
+|clean/clear|one with managing messages permission can delete n number of msgs from a channel|
+|server|get server details|
+|spam|only admins can spam some text n(n<=20) number of times using this command|
+|ping|display the ping|
+|newrole|admin can create a new role|
+|giverole|admin can assign any member a role|
 
 ---
 
-# Some Cool Discord built-in commands:
+### Greeting commands
+Use these commands to greet other members
 
-- /giphy : search for gifs on web
-- /tenor : search for gifs on web
-- /tts : send text to speech message to all members currently viewing the channel
-- /me : display a text with emphasis
-- /spoiler : mark your message a spoiler
-- /nick : change your nickname on the server
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|hi/hello|say hi|
+|uthere/areuthere|ask are you there|
+|goodmorning/gm|wish goodmorning|
+|goodnight/goodn8/nightynight/gn|wish goodnight|
+|bye/sayonara/adios|say bye|
 
 ---
 
-# Bonus:
+### Fun commands
+Use these commands to have a bit of fun
 
-<img src="https://github.com/Mastermind-sap/joker/blob/main/screenshots/shhh.jpg" width="200">
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|insult|insult someone with a gif|
+|troll/destroy|troll someone with a line|
+|cjoke/coding_joke|crack a coding related joke|
+|joke|crack a joke|
+|meme/memify|sends a random meme|
+|comic/xkcd|sends a random comic strip|
+|choice/choose/select/random|choose random item from a list|
+|akinator/aki|Call the akinator|
+|mastermind|Play MASTERMIND -THE GUESSING GAME|
 
-## To invite my other bot "shhh" [click here](https://discord.com/oauth2/authorize?client_id=769807215095185458&permissions=8&scope=bot)
+---
 
-### Features:
-- Bans all foul language or slangs in the server channels
-- It deletes the message containing a slang and gives a message
+### Music commands
 
-### For code of shhh bot [click here](https://github.com/Mastermind-sap/discord-bot/tree/main/shhh-discord)
+####  :negative_squared_cross_mark: WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
+####  :negative_squared_cross_mark: Only for educational purposes
+
+Use these commands to play music/youtube audio
+
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|play/p|play some audio from youtube video link or from the given query|
+|leave/disconnect/exit|make the bot leave the voice channel|
+|pause|pause current music|
+|resume|resume current music|
+|stop|stop current music|
+
+---
+
+### Utility commands
+Some more utility commands
+
+| COMMAND | DESCRIPTION |
+| ----------- | ----------- |
+|search|search for query and return n number of results (max n=5)|
+|gif/gifs|get a gif according to query you give|
+|randomgif/randg|get a random gif|
+|quote|send a random quote|
 
 ---
