@@ -11,12 +11,7 @@
 
 ---
 
-# Invite joker/whysoserious bot(my bot) to your server
-## To invite joker click [here](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
-- Once you have invited the bot type `!joker help` in any text channel or private message to joker, to get a list of all the commands published till date
-- You need to use `!joker` before every command
-
-![Joker](https://github.com/Mastermind-sap/joker/blob/main/screenshots/joker1.JPG)
+####[INVITE](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
 
 ---
 
