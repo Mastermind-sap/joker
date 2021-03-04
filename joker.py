@@ -17,7 +17,8 @@ import itertools
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
 
-bot = commands.Bot(command_prefix='!joker ')
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='!joker ',intents=intents)
 bot.remove_command("help")
 status=cycle(["Why So Sad!?","JOKER IS HERE","Use !joker"])
 
@@ -117,9 +118,27 @@ async def change_status():
     
 @bot.event
 async def on_member_join(member):
-    for channel in member.server.channels:
-        if str(channel)=="general":
-            await bot.send_message(f"""WELCOME TO THE SERVER {member.mention}""")
+    for channel in member.guild.channels:
+        if ('general' in channel.name.lower()):
+            try:
+                welcome=discord.Embed(title=member.name,description=f"""Welcome to {member.guild} {member.mention}""",color=discord.Colour.red())
+                welcome.add_field(name="ID",value=member.id,inline=False)
+                welcome.set_thumbnail(url=member.avatar_url)
+                await channel.send(embed=welcome)
+            except Exception as e:
+                pass
+
+@bot.event
+async def on_member_remove(member):
+    for channel in member.guild.channels:
+        if ('general' in channel.name.lower()):
+            try:
+                left=discord.Embed(title=member.name,description=f"""{member.mention} left the server""",color=discord.Colour.red())
+                left.add_field(name="ID",value=member.id,inline=False)
+                left.set_thumbnail(url=member.avatar_url)
+                await channel.send(embed=left)
+            except Exception as e:
+                pass
 
 @bot.event
 async def on_command_error(ctx,error):
