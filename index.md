@@ -72,6 +72,7 @@ Use these commands to have a bit of fun
 |choice/choose/select/random|choose random item from a list|
 |akinator/aki|Call the akinator|
 |mastermind|Play MASTERMIND -THE GUESSING GAME|
+|riddle|Generate a random riddle from a collection of 101 riddles|
 
 ---
 
