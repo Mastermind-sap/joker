@@ -73,6 +73,10 @@ Use these commands to have a bit of fun
 |akinator/aki|Call the akinator|
 |mastermind|Play MASTERMIND -THE GUESSING GAME|
 |riddle|Generate a random riddle from a collection of 101 riddles|
+|chessprofile/get_player|Get player chess.com profile|
+|leaderboards/print_leaderboards|Get chess leaderboards|
+|stats/get_player_rating|Get player stats|
+|chesspuzzle|Get random chess puzzle|
 
 ---
 
