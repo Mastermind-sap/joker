@@ -10,4 +10,4 @@ google==3.0.0
 giphypop==0.3
 pytube
 akinator.py==4.1.0
-chess.com
+chess.com ==1.4.1
