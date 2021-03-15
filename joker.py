@@ -14,6 +14,7 @@ import akinator as ak
 import asyncio
 import itertools
 import chessdotcom as chess
+import randfacts
 
 token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
@@ -97,6 +98,7 @@ async def help(ctx):
     utility_embed.add_field(name="gif/gifs",value="get a gif according to query you give",inline=False)
     utility_embed.add_field(name="randomgif/randg",value="get a random gif",inline=False)
     utility_embed.add_field(name="quote",value="send a random quote",inline=False)
+    utility_embed.add_field(name="randomfact/rfact",value="send a random fact",inline=False)
     await author.send(embed=utility_embed)
     
 async def is_it_me(ctx):
@@ -817,5 +819,8 @@ async def chesspuzzle(ctx):
         await ctx.send(data['title'])
         await ctx.send(data['image'])
         await ctx.send(data['url'])
-        
+
+@bot.command(aliases=["rfact"])
+async def randomfact(ctx):
+    await ctx.send(randfacts.getFact())
 bot.run(token)
