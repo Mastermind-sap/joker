@@ -126,7 +126,7 @@ async def change_status():
 @bot.event
 async def on_member_join(member):
     for channel in member.guild.channels:
-        if ('general' in channel.name.lower()):
+        if ('welcome' in channel.name.lower()):
             try:
                 welcome=discord.Embed(title=member.name,description=f"""Welcome to {member.guild} {member.mention}""",color=discord.Colour.red())
                 welcome.add_field(name="ID",value=member.id,inline=False)
@@ -138,7 +138,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     for channel in member.guild.channels:
-        if ('general' in channel.name.lower()):
+        if ('goodbye' in channel.name.lower()):
             try:
                 left=discord.Embed(title=member.name,description=f"""{member.mention} left the server""",color=discord.Colour.red())
                 left.add_field(name="ID",value=member.id,inline=False)
