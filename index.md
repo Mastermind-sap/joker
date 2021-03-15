@@ -8,6 +8,7 @@
  [![forthebadge](https://img.shields.io/badge/deploy_to-heroku-997FBC.svg?style=for-the-badge&logo=Heroku)](https://dashboard.heroku.com/apps)
  
 ## A simple discord bot created using python library discord.py rewrite.
+## Join our discord server : https://discord.gg/eJqrvHMbNA
 
 ---
 
