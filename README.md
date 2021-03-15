@@ -10,6 +10,8 @@
  
 ## A simple discord bot created using python library discord.py rewrite.
 
+## Join our discord server : https://discord.gg/eJqrvHMbNA
+
 ### [Requirements](https://github.com/Mastermind-sap/joker/blob/main/requirements.txt)
 - git+https://github.com/Rapptz/discord.py
 - dnspython==1.16.0
