@@ -775,8 +775,8 @@ async def get_player(ctx,*,username):
         data = chess.get_player_profile(username).json
         data1=chess.is_player_online(username).json
         data2=chess.get_player_clubs(username).json
-        profile=discord.Embed(title=data['username'],description=data['name'],color=discord.Colour.red())
-        profile.set_thumbnail(url=data['avatar'])
+        profile=discord.Embed(title=data['username'],description=data['name'] if 'name' in data else "No name given",color=discord.Colour.red())
+        profile.set_thumbnail(url=data['avatar'] if 'avatar' in data else "https://betacssjs.chesscomfiles.com/bundles/web/images/noavatar_l.1c5172d5.gif")
         profile.add_field(name="Country:",value=data['country'],inline=False)
         profile.add_field(name="Followers:",value=data['followers'],inline=False)
         profile.add_field(name="Status:",value=data['status'],inline=False)
