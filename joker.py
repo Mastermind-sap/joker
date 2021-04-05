@@ -20,9 +20,9 @@ token = open("token.txt", "r").read()
 mainaccid=open("mainaccid.txt", "r").read()
 
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix='!joker ',intents=intents)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('!joker '),intents=intents)
 bot.remove_command("help")
-status=cycle(["Why So Sad!?","JOKER IS HERE","Use !joker"])
+status=cycle(["Why So Sad!?","JOKER IS HERE","Use !joker or mention me"])
 
 @bot.command(pass_context=True)
 async def help(ctx):
