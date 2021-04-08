@@ -75,7 +75,7 @@ class Restricted(commands.Cog):
 
     @commands.check(is_it_me)
     @commands.command()
-    async def msgservers(ctx,*,text):
+    async def msgservers(self,ctx,*,text):
         activeservers = self.bot.guilds
         for guild in activeservers:
             for channel in guild.channels:
