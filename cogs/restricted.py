@@ -78,13 +78,21 @@ class Restricted(commands.Cog):
     async def msgservers(self,ctx,*,text):
         activeservers = self.bot.guilds
         for guild in activeservers:
+            allowed=[]
             for channel in guild.channels:
-                if('general' in channel.name.lower()):
-                    try:
-                        await channel.send(text)
-                        await ctx.send("Sent message to Guild: "+guild.name+" Channel: "+channel.name)
-                    except Exception as e:
-                        await ctx.send(e)
+                if channel.permissions_for(guild.me).send_messages and channel.permissions_for(guild.me).embed_links:
+                    allowed.append(channel)
+            if len(allowed) >= 1:
+                to_post = allowed[0]
+                for channel in allowed:
+                    if "general" in channel.name.lower():
+                        to_post = channel
+                        break
+                try:
+                    await to_post.send(text)
+                    await ctx.send("Sent message to Guild: "+guild.name+" Channel: "+to_post.name)
+                except Exception as e:
+                    await ctx.send(e)
 
 
     @commands.check(is_it_me)
