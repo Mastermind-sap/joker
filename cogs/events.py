@@ -14,7 +14,7 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
         allowed = []
-        for channel in guild.channels:
+        for channel in guild.text_channels:
             if channel.permissions_for(guild.me).send_messages and channel.permissions_for(guild.me).embed_links:
                 allowed.append(channel)
 
@@ -36,7 +36,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self,member):
-        for channel in member.guild.channels:
+        for channel in member.guild.text_channels:
             if ('welcome' in channel.name.lower()):
                 try:
                     welcome=discord.Embed(title=member.name,description=f"""Welcome to {member.guild} {member.mention}""",color=discord.Colour.red())
@@ -48,7 +48,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_remove(self,member):
-        for channel in member.guild.channels:
+        for channel in member.guild.text_channels:
             if ('goodbye' in channel.name.lower()):
                 try:
                     left=discord.Embed(title=member.name,description=f"""{member.mention} left the server""",color=discord.Colour.red())

@@ -79,7 +79,7 @@ class Restricted(commands.Cog):
         activeservers = self.bot.guilds
         for guild in activeservers:
             allowed=[]
-            for channel in guild.channels:
+            for channel in guild.text_channels:
                 if channel.permissions_for(guild.me).send_messages and channel.permissions_for(guild.me).embed_links:
                     allowed.append(channel)
             if len(allowed) >= 1:
