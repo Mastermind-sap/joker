@@ -1,5 +1,6 @@
-![](https://cdn.discordapp.com/avatars/768906991820210269/6cb8501b1045c11cc56d5a097579f9f8.webp?size=1024)
-# joker
+<!--![](https://cdn.discordapp.com/avatars/768906991820210269/6cb8501b1045c11cc56d5a097579f9f8.webp?size=1024)-->
+![](https://github.com/Mastermind-sap/joker/blob/main/screenshots/joker-logo.jpg)
+<!--# joker-->
 #### My discord bot [W.I.P.]
  ---
  [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
