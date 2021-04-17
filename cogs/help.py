@@ -84,6 +84,35 @@ class Help(commands.Cog):
         utility_embed.add_field(name="quote",value="send a random quote",inline=False)
         utility_embed.add_field(name="randomfact/rfact",value="send a random fact",inline=False)
         await author.send(embed=utility_embed)
+
+        def check(reaction, user):
+            return user == author and str(reaction.emoji) in ["➡","⬅"]
+
+        help_list=[help_embed,server_embed,greet_embed,fun_embed,music_embed,utility_embed]
+        count=0
+        help_msg=await ctx.send(embed=help_list[count])
+        await help_msg.add_reaction("⬅")
+        await help_msg.add_reaction("➡")
+        
+        while True:
+            reaction, user = await self.bot.wait_for('reaction_add',check=check)
+            print(str(reaction))
+            if str(reaction.emoji) == "➡":
+                count+=1
+                if count>len(help_list)-1:
+                    count=0
+                await help_msg.edit(embed=help_list[count])
+                await help_msg.add_reaction("⬅")
+                await help_msg.add_reaction("➡")
+        
+            elif str(reaction.emoji) == "⬅":
+                count-=1
+                if count<0:
+                    count=len(help_list)-1
+                await help_msg.edit(embed=help_list[count])
+                await help_msg.add_reaction("⬅")
+                await help_msg.add_reaction("➡")
+
 def setup(bot):
     bot.add_cog(Help(bot))
 
