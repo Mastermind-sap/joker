@@ -47,5 +47,17 @@ class Utility(commands.Cog):
     async def randomfact(self,ctx):
         await ctx.send(randfacts.getFact())
 
+    @commands.command()
+    async def server_poll(self,ctx, emojis: commands.Greedy[discord.Emoji], *, text):
+        msg = await ctx.send(text)
+        for emoji in emojis:
+            await msg.add_reaction(emoji)
+
+    @commands.command()
+    async def poll(self,ctx, *, text):
+        message = await ctx.send(text)
+        for emoji in ('👍', '👎'):
+            await message.add_reaction(emoji)
+
 def setup(bot):
     bot.add_cog(Utility(bot))

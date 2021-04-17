@@ -66,8 +66,8 @@ async def reload(ctx,extension):
 async def loadall(ctx):
     try:
         for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
-            bot.load_extension(f"cogs.{filename[:-3]}")
+            if filename.endswith(".py"):
+                bot.load_extension(f"cogs.{filename[:-3]}")
         await ctx.send(f"Loaded all")
     except Exception as e:
         await ctx.send("Error occured:"+e)
@@ -76,8 +76,8 @@ async def loadall(ctx):
 async def unloadall(ctx):
     try:
         for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
-            bot.unload_extension(f"cogs.{filename[:-3]}")
+            if filename.endswith(".py"):
+                bot.unload_extension(f"cogs.{filename[:-3]}")
         await ctx.send(f"Unloaded all")
     except Exception as e:
         await ctx.send("Error occured:"+e)
@@ -87,9 +87,9 @@ async def unloadall(ctx):
 async def reloadall(ctx):
     try:
         for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
-            bot.unload_extension(f"cogs.{filename[:-3]}")
-            bot.load_extension(f"cogs.{filename[:-3]}")
+            if filename.endswith(".py"):
+                bot.unload_extension(f"cogs.{filename[:-3]}")
+                bot.load_extension(f"cogs.{filename[:-3]}")
         await ctx.send(f"Reloaded all")
     except Exception as e:
         await ctx.send("Error occured:"+e)
