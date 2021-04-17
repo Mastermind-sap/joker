@@ -13,7 +13,7 @@ mainaccid=open("mainaccid.txt", "r").read()
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('!joker '),intents=intents)
-status=cycle(["Why So Sad!?","JOKER IS HERE","Use !joker or mention me"])
+status=cycle(["Why So Serious!?","JOKER IS HERE","Use !joker or mention me"])
 
 async def is_it_me(ctx):
     if(str(ctx.author.id) == mainaccid):
@@ -58,6 +58,39 @@ async def reload(ctx,extension):
         bot.unload_extension(f'cogs.{extension}')
         bot.load_extension(f'cogs.{extension}')
         await ctx.send(f"Reloaded {extension}")
+    except Exception as e:
+        await ctx.send("Error occured:"+e)
+
+@commands.check(is_it_me)
+@bot.command()
+async def loadall(ctx):
+    try:
+        for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            bot.load_extension(f"cogs.{filename[:-3]}")
+        await ctx.send(f"Loaded all")
+    except Exception as e:
+        await ctx.send("Error occured:"+e)
+@commands.check(is_it_me)
+@bot.command()
+async def unloadall(ctx):
+    try:
+        for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            bot.unload_extension(f"cogs.{filename[:-3]}")
+        await ctx.send(f"Unloaded all")
+    except Exception as e:
+        await ctx.send("Error occured:"+e)
+
+@commands.check(is_it_me)
+@bot.command()
+async def reloadall(ctx):
+    try:
+        for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            bot.unload_extension(f"cogs.{filename[:-3]}")
+            bot.load_extension(f"cogs.{filename[:-3]}")
+        await ctx.send(f"Reloaded all")
     except Exception as e:
         await ctx.send("Error occured:"+e)
         
