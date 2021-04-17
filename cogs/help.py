@@ -83,7 +83,6 @@ class Help(commands.Cog):
         utility_embed.add_field(name="randomgif/randg",value="get a random gif",inline=False)
         utility_embed.add_field(name="quote",value="send a random quote",inline=False)
         utility_embed.add_field(name="randomfact/rfact",value="send a random fact",inline=False)
-        await author.send(embed=utility_embed)
 
         def check(reaction, user):
             return user == author and str(reaction.emoji) in ["➡","⬅"]
