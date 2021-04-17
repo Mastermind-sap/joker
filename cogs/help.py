@@ -14,6 +14,7 @@ class Help(commands.Cog):
 
     @commands.command(pass_context=True)
     async def help(self,ctx):
+        
         author=ctx.message.author
 
         #main help command
@@ -22,8 +23,7 @@ class Help(commands.Cog):
         help_embed.set_thumbnail(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")    
         #help_embed.set_image(url="https://media.tenor.com/images/b9432c96a5ff07c194f337e7b43ff248/tenor.gif")
         help_embed.set_footer(text="Requested by: "+str(author))
-        await author.send(embed=help_embed)
-
+        
         #server commands
         server_embed=discord.Embed(title="Server commands",description="Use these commands to manage the server",color=discord.Colour.red())
         server_embed.set_thumbnail(url="https://media1.tenor.com/images/d69ffe2237924b286e769d081580d2d9/tenor.gif")
@@ -37,7 +37,6 @@ class Help(commands.Cog):
         server_embed.add_field(name="ping",value="display the ping",inline=False)
         server_embed.add_field(name="newrole",value="admin can create a new role",inline=False)
         server_embed.add_field(name="giverole",value="admin can assign any member a role",inline=False)
-        await author.send(embed=server_embed)
 
         #greeting commands
         greet_embed=discord.Embed(title="Greeting commands",description="Use these commands to greet other members",color=discord.Colour.red())
@@ -47,7 +46,6 @@ class Help(commands.Cog):
         greet_embed.add_field(name="goodmorning/gm",value="wish goodmorning",inline=False)
         greet_embed.add_field(name="goodnight/goodn8/nightynight/gn",value="wish goodnight",inline=False)
         greet_embed.add_field(name="bye/sayonara/adios",value="say bye",inline=False)
-        await author.send(embed=greet_embed)
         
         #fun commands
         fun_embed=discord.Embed(title="Fun commands",description="Use these commands to have a bit of fun",color=discord.Colour.red())
@@ -66,7 +64,6 @@ class Help(commands.Cog):
         fun_embed.add_field(name="leaderboards/print_leaderboards",value="Get chess leaderboards",inline=False)
         fun_embed.add_field(name="stats/get_player_rating",value="Get player stats",inline=False)
         fun_embed.add_field(name="chesspuzzle",value="Get random chess puzzle",inline=False)
-        await author.send(embed=fun_embed)
 
         #music commands
         music_embed=discord.Embed(title="Music commands",description="Use these commands to play music/youtube audio",color=discord.Colour.red())
@@ -77,7 +74,6 @@ class Help(commands.Cog):
         music_embed.add_field(name="pause",value="pause current music",inline=False)
         music_embed.add_field(name="resume",value="resume current music",inline=False)
         music_embed.add_field(name="stop",value="stop current music",inline=False)
-        await author.send(embed=music_embed)
         
         #other utility commands
         utility_embed=discord.Embed(title="Utility commands",description="Some more utility commands",color=discord.Colour.red())

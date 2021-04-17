@@ -67,6 +67,5 @@ class Events(commands.Cog):
         elif isinstance(error,commands.MissingPermissions):
             await ctx.send("You are not authorized to use this command!")
 
-
 def setup(bot):
     bot.add_cog(Events(bot))
