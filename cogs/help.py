@@ -83,6 +83,8 @@ class Help(commands.Cog):
         utility_embed.add_field(name="randomgif/randg",value="get a random gif",inline=False)
         utility_embed.add_field(name="quote",value="send a random quote",inline=False)
         utility_embed.add_field(name="randomfact/rfact",value="send a random fact",inline=False)
+        utility_embed.add_field(name="server_poll",value="creates a poll with only server custom emojis which should be mentioned before poll statement",inline=False)
+        utility_embed.add_field(name="poll",value="creates a poll",inline=False)
 
         def check(reaction, user):
             return user == author and str(reaction.emoji) in ["➡","⬅"]
