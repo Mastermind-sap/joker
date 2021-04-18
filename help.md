@@ -1,3 +1,5 @@
+# Will not update list of commands here anymore check in discord help command.
+
 # Joker Help
 ## Use !joker before any command
 
