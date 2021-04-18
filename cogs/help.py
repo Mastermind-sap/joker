@@ -97,7 +97,6 @@ class Help(commands.Cog):
         
         while True:
             reaction, user = await self.bot.wait_for('reaction_add',check=check)
-            print(str(reaction))
             if str(reaction.emoji) == "➡":
                 count+=1
                 if count>len(help_list)-1:
