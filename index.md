@@ -8,8 +8,8 @@
  [![forthebadge](https://img.shields.io/badge/deploy_to-heroku-997FBC.svg?style=for-the-badge&logo=Heroku)](https://dashboard.heroku.com/apps)
  
 ## A simple discord bot created using python library discord.py rewrite.
-## Join our discord server : https://discord.gg/eJqrvHMbNA
-#### [To invite joker click here](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
+## Join our discord server [here](https://discord.gg/eJqrvHMbNA)
+## To invite joker click  [here](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
 - Once you have invited the bot type `!joker help` in any text channel or private message to joker, to get a list of all the commands published till date
 - You need to use `!joker` or mention the bot before every command
 
