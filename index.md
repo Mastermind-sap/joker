@@ -1,4 +1,4 @@
-![](https://cdn.discordapp.com/avatars/768906991820210269/6cb8501b1045c11cc56d5a097579f9f8.webp?size=1024)
+[<img alt="joker" src="https://raw.githubusercontent.com/Mastermind-sap/joker/main/screenshots/joker-logo.jpg">](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
 
  ---
  [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
@@ -9,10 +9,9 @@
  
 ## A simple discord bot created using python library discord.py rewrite.
 ## Join our discord server : https://discord.gg/eJqrvHMbNA
-
----
-
-#### [INVITE](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
+#### [To invite joker click here](https://discord.com/api/oauth2/authorize?client_id=768906991820210269&permissions=8&scope=bot)
+- Once you have invited the bot type `!joker help` in any text channel or private message to joker, to get a list of all the commands published till date
+- You need to use `!joker` or mention the bot before every command
 
 ---
 
@@ -20,7 +19,7 @@
 - The bot will be online most of the time but may be pushed offline during developing stage. Moreover the work is in progress so that might happen often.
 - New commands will keep comming now and then.
 - Please use the bot in a fair manner such that it hurts no ones feeling.
-- Any suggestions regarding new commands ,modification are always welcome.
+- Any suggestions regarding new commands ,modification are always welcome in github disscussions,issues and official bot server.
 
 ---
 # [Joker Help](https://github.com/Mastermind-sap/joker/blob/main/help.md)
@@ -83,8 +82,8 @@ Use these commands to have a bit of fun
 
 ### Music commands
 
-####  :negative_squared_cross_mark: WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
-####  :negative_squared_cross_mark: Only for educational purposes
+####  ❎ WILL NOT WORK ON MY BOT BECAUSE IT IS AGAINST YOUTUBE POLICIES
+####  ❎ Only for educational purposes
 
 Use these commands to play music/youtube audio
 
