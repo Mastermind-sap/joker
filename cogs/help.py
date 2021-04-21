@@ -60,10 +60,15 @@ class Help(commands.Cog):
         fun_embed.add_field(name="akinator/aki",value="Call the akinator",inline=False)
         fun_embed.add_field(name="mastermind",value="Play MASTERMIND -THE GUESSING GAME",inline=False)
         fun_embed.add_field(name="riddle",value="Generate a random riddle from a collection of 101 riddles")
-        fun_embed.add_field(name="chessprofile/get_player",value="Get player chess.com profile",inline=False)
-        fun_embed.add_field(name="leaderboards/print_leaderboards",value="Get chess leaderboards",inline=False)
-        fun_embed.add_field(name="stats/get_player_rating",value="Get player stats",inline=False)
-        fun_embed.add_field(name="chesspuzzle",value="Get random chess puzzle",inline=False)
+        fun_embed.add_field(name="slap",value="Slap someone!",inline=False)
+
+        #chess.com commands
+        chess_embed=discord.Embed(title="Chess commands",description="Some commands related to chess.com",color=discord.Colour.red())
+        chess_embed.set_thumbnail(url="https://media1.tenor.com/images/aa51d900b3af7262fda7aa6e8ff024eb/tenor.gif")
+        chess_embed.add_field(name="chessprofile/get_player",value="Get player chess.com profile",inline=False)
+        chess_embed.add_field(name="leaderboards/print_leaderboards",value="Get chess leaderboards",inline=False)
+        chess_embed.add_field(name="stats/get_player_rating",value="Get player stats",inline=False)
+        chess_embed.add_field(name="chesspuzzle",value="Get random chess puzzle",inline=False)
 
         #music commands
         music_embed=discord.Embed(title="Music commands",description="Use these commands to play music/youtube audio",color=discord.Colour.red())
@@ -89,7 +94,7 @@ class Help(commands.Cog):
         def check(reaction, user):
             return user == author and str(reaction.emoji) in ["➡","⬅"]
 
-        help_list=[help_embed,server_embed,greet_embed,fun_embed,music_embed,utility_embed]
+        help_list=[help_embed,server_embed,greet_embed,fun_embed,chess_embed,music_embed,utility_embed]
         count=0
         help_msg=await ctx.send(embed=help_list[count])
         await help_msg.add_reaction("⬅")
