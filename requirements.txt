@@ -12,3 +12,4 @@ pytube
 akinator.py==4.1.0
 chess.com ==1.4.1
 randfacts==0.3.0
+Pillow==7.1.2

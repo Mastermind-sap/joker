@@ -58,13 +58,6 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def slap(self,ctx, user : discord.Member =None):
-##        if not user:
-##            slapper=str(self.bot.id)
-##            person=str(ctx.author.id)
-##        else:
-##            slapper=str(ctx.author.id)
-##            person=str(user.id)
-##        await ctx.send(f"https://cdn.discordapp.com/attachments/{slapper}/{person}/slap.png")
         try:
             if not user:
                     user=ctx.author
