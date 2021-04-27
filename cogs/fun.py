@@ -9,7 +9,6 @@ import json
 import asyncio
 import itertools
 from PIL import Image
-import io
 import os
 
 
@@ -62,9 +61,7 @@ class Fun(commands.Cog):
             if not user:
                     user=ctx.author
             await ctx.send("Just slapped :wave: "+user.mention)
-            response = requests.get(user.avatar_url)
-            image_bytes = io.BytesIO(response.content)
-            person = Image.open(image_bytes)
+            person = Image.open(requests.get(user.avatar_url, stream=True).raw)
             slap = Image.open(".\cogs\slapping\slap.jpg")
             person_res=person.resize((100,100))
             area=(100,100,200,200)
