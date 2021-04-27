@@ -9,6 +9,11 @@
  [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://github.com/Mastermind-sap/joker)
  [![forthebadge](https://img.shields.io/badge/deploy_to-heroku-997FBC.svg?style=for-the-badge&logo=Heroku)](https://dashboard.heroku.com/apps)
  
+[![GitHub contributors](https://img.shields.io/github/contributors/Mastermind-sap/joker.svg?style=flat-square)](https://github.com/Mastermind-sap/joker/graphs/contributors)
+[![GitHub license](https://img.shields.io/github/license/Mastermind-sap/joker.svg?style=flat-square)](https://github.com/Mastermind-sap/joker/blob/master/LICENSE)
+<a href="https://github.com/Mastermind-sap/joker/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/Mastermind-sap/joker" /></a>
+ 
 ## A simple discord bot created using python library discord.py rewrite.
 
 ## Join our discord server : https://discord.gg/eJqrvHMbNA
