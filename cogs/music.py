@@ -6,6 +6,7 @@ import requests
 import json
 import asyncio
 import itertools
+import googlesearch as gs
 
 
 async def music_commands(ctx):
