@@ -62,15 +62,15 @@ class Fun(commands.Cog):
                     user=ctx.author
             await ctx.send("Just slapped :wave: "+user.mention)
             person = Image.open(requests.get(user.avatar_url, stream=True).raw)
-            slap = Image.open(".\cogs\slapping\slap.jpg")
+            slap = Image.open(".\\slapping\\slap.jpg")
             person_res=person.resize((100,100))
             area=(100,100,200,200)
             slap.paste(person_res, area)
-            slap.save(".\\cogs\\slapping\\"+str(user.id)+".jpg")
-            with open(".\\cogs\\slapping\\"+str(user.id)+".jpg", 'rb') as f:
+            slap.save(".\\slapping\\"+str(user.id)+".jpg")
+            with open(".\\slapping\\"+str(user.id)+".jpg", 'rb') as f:
                 picture = discord.File(f)
                 await ctx.send(file=picture)
-            os.remove(".\\cogs\\slapping\\"+str(user.id)+".jpg")
+            os.remove(".\\slapping\\"+str(user.id)+".jpg")
         except Exception as e:
             print(e)
 

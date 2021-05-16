@@ -5,6 +5,8 @@ import requests
 import json
 import asyncio
 import itertools
+import io
+from contextlib import redirect_stdout
 
 
 mainaccid=open("mainaccid.txt", "r").read()
@@ -24,8 +26,6 @@ class Restricted(commands.Cog):
     ##BUT RUNNING FROM SERVERS LIKE heroku TILL NOW HAVE NOT SHOWN ANY AFFECT ON THE CODING COMPUTER EVEN WITH OS MODULE CODES
     ##THE OUTPUT IS : "py"
     ##eval command->executes any python code and displays output(work in progress)
-    import io
-    from contextlib import redirect_stdout
     @commands.command(aliases=["eval"])
     @commands.check(is_it_me)
     async def e(self,ctx,*,code):
@@ -41,8 +41,9 @@ class Restricted(commands.Cog):
                     exec(compile(code,'mulstring', 'exec'))
                 out = stdout.getvalue()
                 await ctx.send("```py\n"+out+"```")
-            except:
+            except Exception as e:
                 await ctx.send("```py\n Error ```")
+                await ctx.send(e)
         else:
             await ctx.send("```py\n Sorry this code is restricted due to security reasons ```")
 
